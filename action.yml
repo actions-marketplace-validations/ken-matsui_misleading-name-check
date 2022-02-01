@@ -17,6 +17,10 @@ inputs:
   list:
     description: Target list to check
     required: true
+  distance:
+    description: Levenshtein distance
+    required: false
+    default: '1'
 outputs:
   random-number:
     description: "Is misleading"
@@ -33,6 +37,6 @@ runs:
 
     - id: check-misleading
       run: |
-        suggest ${{ inputs.name }} ${{ inputs.list }}
+        suggest ${{ inputs.name }} ${{ inputs.list }} --distance ${{ inputs.distance }}
         echo "::set-output name=is-misleading::$([ $? = 0 ] && echo 'true' || echo 'false')"
       shell: bash
