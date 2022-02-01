@@ -1,0 +1,38 @@
+name: 'Misleading Name Check'
+description: 'GitHub Actions that checks whether a provided name is misleading or not'
+author: 'ken-matsui'
+
+branding:
+  icon: 'alert-triangle'
+  color: 'yellow'
+
+inputs:
+  version:
+    description: Specify a suggestion-cli version to install
+    required: false
+    default: 'latest'
+  name:
+    description: Name to check
+    required: true
+  list:
+    description: Target list to check
+    required: true
+outputs:
+  random-number:
+    description: "Is misleading"
+    value: ${{ steps.check-misleading.outputs.is-misleading }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install suggestion-cli
+      uses: actions-rs/install@v0.1
+      with:
+        crate: suggestion-cli
+        version: ${{ inputs.version }}
+
+    - id: check-misleading
+      run: |
+        suggest ${{ inputs.name }} ${{ inputs.list }}
+        echo "::set-output name=is-misleading::$([ $? = 0 ] && echo 'true' || echo 'false')"
+      shell: bash
