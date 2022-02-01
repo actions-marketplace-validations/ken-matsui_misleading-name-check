@@ -37,5 +37,5 @@ runs:
 
     - id: check-misleading
       run: |
-        echo "::set-output name=is-misleading::$(suggest ${{ inputs.name }} ${{ inputs.list }} --distance ${{ inputs.distance }} && echo 'true' || echo 'false')"
+        echo "::set-output name=is-misleading::$(suggest ${{ inputs.name }} ${{ inputs.list }} -d ${{ inputs.distance }} -q && echo 'true' || echo 'false')"
       shell: bash
