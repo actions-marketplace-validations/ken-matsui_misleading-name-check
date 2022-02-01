@@ -18,4 +18,4 @@ jobs:
           distance: 2
 
       - name: Output the result
-        run: echo 'Is `paoc` misleading name?: ${{ steps.check-misleading.outputs.is-misleading }}'
+        run: echo 'Is `paoc` misleading name? (${{ steps.check-misleading.outputs.is-misleading }})'
