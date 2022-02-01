@@ -22,8 +22,8 @@ inputs:
     required: false
     default: '1'
 outputs:
-  random-number:
-    description: "Is misleading"
+  is-misleading:
+    description: "Boolean value (true | false) that indicates misleading"
     value: ${{ steps.check-misleading.outputs.is-misleading }}
 
 runs:
