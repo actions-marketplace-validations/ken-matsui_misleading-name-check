@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  misleading:
     runs-on: ubuntu-latest
     steps:
       - id: check-misleading
@@ -21,6 +21,9 @@ jobs:
         run: |
           [ '${{ steps.check-misleading.outputs.is-misleading }}' = 'true' ]
 
+  not-misleading:
+    runs-on: ubuntu-latest
+    steps:
       - id: check-not-misleading
         uses: ken-matsui/misleading-name-check@main
         with:
