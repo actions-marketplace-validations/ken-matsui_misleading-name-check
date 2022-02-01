@@ -19,7 +19,7 @@ jobs:
 
       - name: Test the result
         run: |
-          ['${{ steps.check-misleading.outputs.is-misleading }}' = 'true']
+          [ '${{ steps.check-misleading.outputs.is-misleading }}' = 'true' ]
 
       - id: check-not-misleading
         uses: ken-matsui/misleading-name-check@main
@@ -29,4 +29,4 @@ jobs:
 
       - name: Test the result
         run: |
-          ['${{ steps.check-not-misleading.outputs.is-misleading }}' = 'false']
+          [ '${{ steps.check-not-misleading.outputs.is-misleading }}' = 'false' ]
