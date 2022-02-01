@@ -10,12 +10,23 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - id: is-misleading
+      - id: check-misleading
         uses: ken-matsui/misleading-name-check@main
         with:
           name: paoc
           list: poac poacpp
           distance: 2
 
-      - name: Output the result
-        run: echo 'Is `paoc` misleading name? (${{ steps.check-misleading.outputs.is-misleading }})'
+      - name: Test the result
+        run: |
+          ['${{ steps.check-misleading.outputs.is-misleading }}' = true]
+
+      - id: check-not-misleading
+        uses: ken-matsui/misleading-name-check@main
+        with:
+          name: paoc
+          list: poac poacpp
+
+      - name: Test the result
+        run: |
+          ['${{ steps.check-not-misleading.outputs.is-misleading }}' = true]
