@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: check-misleading
-        uses: ken-matsui/misleading-name-check@main
+        uses: ken-matsui/misleading-name-check@v1
         with:
           name: aaaa
           list: aaab aaabc
