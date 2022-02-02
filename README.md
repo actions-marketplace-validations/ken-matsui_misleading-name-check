@@ -37,7 +37,7 @@ jobs:
 
 * `name` (required): A name to check
 * `list` (required): A list of words to check
-* `version`: A version of [`suggestion-cli`](https://github.com/ken-matsui/suggestion-cli) (default is `latest`)
+* `version`: A version of [`suggestion-cli`](https://github.com/ken-matsui/suggestion) (default is `latest`)
 * `distance`: Levenshtein distance if needed (default is `1`)
 
 ### Outputs
