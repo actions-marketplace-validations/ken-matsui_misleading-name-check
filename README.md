@@ -10,7 +10,7 @@ This action will output `is-misleading` so that you can extract the result after
 ### Example workflow
 
 ```yaml
-name: Test
+name: Misleading Name Check
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
 ### Inputs
 
 * `name` (required): A name to check
-* `list` (required): A list of words to check
+* `list` (required): A list of words
 * `version`: A version of [`suggestion-cli`](https://github.com/ken-matsui/suggestion) (default is `latest`)
 * `distance`: Levenshtein distance if needed (default is `1`)
 
